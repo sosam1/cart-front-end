@@ -32,7 +32,7 @@ fetch(URL)
         console.log(data);
         contenedor = document.getElementById("contenedor");
 
-        data.forEach(element => {
+       /*  data.forEach(element => {
 
             contenedor.innerHTML += `
                 
@@ -42,5 +42,5 @@ fetch(URL)
             `
 
         });
-
+ */
     });
