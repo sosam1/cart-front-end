@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function() {
+  
+
 const URL = "http://127.0.0.1:4000/products";
 
 
@@ -26,21 +29,38 @@ function hola(id, stock=1) {
 
     }
 
+container = document.getElementById("items-container");
+
 fetch(URL)
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        contenedor = document.getElementById("contenedor");
 
-       /*  data.forEach(element => {
+        //show the first 4
 
-            contenedor.innerHTML += `
-                
-            <button onclick="hola('${element._id}')">${element.modelo} ${element._id}</button>
-
-
+        for(let i=0; i<=4; i++){
+            
+            container.innerHTML += `
+            
+            <div class="product-container flex flex-col bg-white rounded-lg overflow-hidden shadow-lg sm:mx-2 lg:mx-auto">
+                <img class="w-full h-64 object-cover" src="${data[i].imagen}" alt="Producto">
+                <div class="p-6">
+                    <h2 class="sm:text-sm lg:text-xl font-semibold text-gray-800 mb-2">${data[i].modelo}</h2>
+                    <p class="text-gray-600 mb-4">${data[i].marca}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="sm:text-base lg:text-xl text-gray-900 font-bold">$${data[i].precio}</span>
+                        <button class="sm:text-xs sm:ml-1 sm:px-1 sm:py-1 lg:px-4 lg:py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded">Buy now</button>
+                    </div>
+                </div>
+            </div>
+            
+            
             `
 
-        });
- */
+            
+        }
+
+
     });
+
+});

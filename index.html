@@ -3,29 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     
   <header class="flex w-full h-96 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
 
-    <div class="w-1/2 h-full flex flex-col p-20">
-      <h2 class="text-black text-4xl font-bold mb-5">30% Off For Your<br> First Shopping</h2>
-      <p class="mb-8">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br> Et ut neque alias vel, dolore consequatur earum assumenda ipsam.</p>
-      <button class="w-36 h-12 rounded-md bg-red-500 hover:bg-red-600 text-white">Buy now</button>
+    <div class="w-1/2 h-full flex flex-col p-20 header-left">
+      <h2 class="text-black font-bold mb-5 sm:text-2xl lg:text-4xl title">30% Off For Your<br> First Shopping</h2>
+      <p class="mb-8 sm:text-sm lg:text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br> Et ut neque alias vel, dolore consequatur earum assumenda ipsam.</p>
+      <a href="#section"><button  class="w-36 h-12 rounded-md bg-red-500 hover:bg-red-600 text-white">Buy now</button></a>
     </div>
 
     <div class="w-1/2 h-full flex justify-start">
-      <img class="h-full" src="./img/header-iphone-image.png" alt="iphone illustration design">
+      <img class="h-full header-img" src="./img/header-iphone-image.png" alt="iphone illustration design">
     </div>
 
   </header>
 
-    <div id="contenedor">
-    </div>
+  <section class="flex flex-col p-10 w-full h-screen bg-[#f6f9fc]" id="section">
+
+    <h2 class="text-black sm:mb-5 sm:text-xl lg:mb-5 lg:ml-24 lg:text-3xl">Most popular</h2>
+    <a href="./catalog.html" class="flex justify-end mb-5 sm:mr-6 lg:mr-28">View all</a>
+
+    <div id="items-container" class="flex"></div>
+
+  </section>
+
+  <style>
+
+    /*ADVICE, I had a problem when making the responsive and it is that if I put these styles in a style sheet sometimes
+     it works and other times it doesn't (I suppose due to specificity problems, this is the way I found to make it work although 
+     it is not the best practice )*/
+
+    /* in the tailwind documentation https://tailwindcss.com/docs/responsive-design i can't find the way
+    to make responsive in small devices like smartphones. and for this reason i will use media querys for
+    2 sizes */
+
+    @media screen and (min-width: 320px) and (max-width: 425px) {
+        header {
+            height: 250px !important;
+        }
+    
+        .header-left {
+            padding: 20px;
+        }
+    
+        .header-left h2 {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    
+        .header-left p {
+            font-size: 10px;
+            margin-bottom: 20px;
+        }
+    
+        .header-left button {
+            height: 30px;
+            width: 90px;
+        }
+    
+        .header-img {
+            align-self: center;
+            height: 150px;
+        }
+
+        #items-container{
+            flex-direction: column;
+        }
+
+        .product-container{
+            margin-bottom: 20px;
+        }
+
+      }
+
+  </style>
 
 
-    <script src="./main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>

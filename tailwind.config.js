@@ -4,10 +4,14 @@ module.exports = {
   theme: {
     extend: {
 
-      fontFamily: {
+      /* fontFamily: {
         'sans': ['Poppins', 'sans-serif'],
+      }, */
+
+      colors: {
+        'regal-blue': '#243c5a',
       },
-      
+
     },
   },
   plugins: [],
