@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     
@@ -14,11 +13,15 @@
     <div class="w-1/2 h-full flex flex-col p-20 header-left">
       <h2 class="text-black font-bold mb-5 sm:text-2xl lg:text-4xl title">30% Off For Your<br> First Shopping</h2>
       <p class="mb-8 sm:text-sm lg:text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br> Et ut neque alias vel, dolore consequatur earum assumenda ipsam.</p>
-      <a href="#section"><button  class="w-36 h-12 rounded-md bg-red-500 hover:bg-red-600 text-white">Buy now</button></a>
+      <a href="#section"><button class="btn w-36 h-12 rounded-md bg-red-500 hover:bg-red-600 text-white">Buy now</button></a>
     </div>
 
-    <div class="w-1/2 h-full flex justify-start">
+    <div class="w-1/2 h-full flex justify-end">
       <img class="h-full header-img" src="./img/header-iphone-image.png" alt="iphone illustration design">
+
+      <div class="sticky top-0 z-50 bg-red-500 lg:mt-10 lg:mr-10 lg:p-5 lg:w-20 lg:h-20 rounded-full right-0 hover:transform hover:-translate-y-5 transition duration-300">
+        <img src="./img/cart.png">
+      </div>
     </div>
 
   </header>
@@ -34,7 +37,7 @@
 
   <style>
 
-    /*ADVICE, I had a problem when making the responsive and it is that if I put these styles in a style sheet sometimes
+    /*WARNING, I had a problem when making the responsive and it is that if I put these styles in a style sheet sometimes
      it works and other times it doesn't (I suppose due to specificity problems, this is the way I found to make it work although 
      it is not the best practice )*/
 
@@ -43,6 +46,7 @@
     2 sizes */
 
     @media screen and (min-width: 320px) and (max-width: 425px) {
+
         header {
             height: 250px !important;
         }
@@ -80,7 +84,6 @@
         }
 
       }
-
   </style>
 
 
