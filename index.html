@@ -19,9 +19,14 @@
     <div class="w-1/2 h-full flex justify-end">
       <img class="h-full header-img" src="./img/header-iphone-image.png" alt="iphone illustration design">
 
-      <div class="sticky top-0 z-50 bg-red-500 lg:mt-10 lg:mr-10 lg:p-5 lg:w-20 lg:h-20 rounded-full right-0 hover:transform hover:-translate-y-5 transition duration-300">
+      <div onclick="getCartItems()" class="cart-container sticky top-0 z-50 bg-red-500 sm:mt-5 sm:mr-5 sm:p-5 sm:w-10 sm:h-10 lg:mt-10 lg:mr-10 lg:p-5 lg:w-20 lg:h-20 rounded-full right-0 hover:transform hover:-translate-y-5 transition duration-300">
         <img src="./img/cart.png">
       </div>
+
+      <div class="cart-menu hidden pt-32 pl-16 pr-16" id="cart-menu">
+        
+      </div>
+
     </div>
 
   </header>
@@ -75,6 +80,16 @@
             height: 150px;
         }
 
+        .cart-container{
+          width: 20px;
+          height: 20px;
+          z-index: 50;
+          position: fixed; 
+          margin-top: 20px;
+          margin-right: 20px;
+          padding: 3px;
+        }
+
         #items-container{
             flex-direction: column;
         }
@@ -83,10 +98,30 @@
             margin-bottom: 20px;
         }
 
+        .cart-menu{
+          width: 150px !important;
+        }
+
       }
+
+      .cart-menu{
+        position: fixed;
+        top: 0;
+        right: -300px; /* Inicialmente oculto */
+        width: 700px; /* Ancho del menú */
+        height: 100%;
+        background-color: #F2F2F2;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+        transition: right 0.5s ease; /* Animación de transición */
+        z-index: 49;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+
   </style>
 
 
   <script src="./main.js"></script>
+  <script src="./cart.js"></script>
 </body>
 </html>
