@@ -10,6 +10,14 @@
     
   <header class="flex w-full h-96 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
 
+    <div id="alert-container" class="hidden fixed left-1/2 transform -translate-x-1/2 border-t-4 rounded-b px-4 py-3 shadow-md z-50">
+      <div class="flex">
+        <div>
+          <p id="alert-message" class="font-bold"></p>
+        </div>
+      </div>
+    </div>
+
     <div class="w-1/2 h-full flex flex-col p-20 header-left">
       <h2 class="text-black font-bold mb-5 sm:text-2xl lg:text-4xl title">30% Off For Your<br> First Shopping</h2>
       <p class="mb-8 sm:text-sm lg:text-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br> Et ut neque alias vel, dolore consequatur earum assumenda ipsam.</p>
@@ -23,21 +31,16 @@
         <img src="./img/cart.png">
       </div>
 
-      <div class="cart-menu hidden pt-32 pl-16 pr-16" id="cart-menu">
-        
-      </div>
-
+      <div class="cart-menu hidden pt-32 pl-16 pr-16" id="cart-menu"><!-- when getCartItems() is active put in this div each cart item --></div>
     </div>
 
   </header>
 
   <section class="flex flex-col p-10 w-full h-screen bg-[#f6f9fc]" id="section">
-
     <h2 class="text-black sm:mb-5 sm:text-xl lg:mb-5 lg:ml-24 lg:text-3xl">Most popular</h2>
     <a href="./catalog.html" class="flex justify-end mb-5 sm:mr-6 lg:mr-28">View all</a>
 
-    <div id="items-container" class="flex"></div>
-
+    <div id="items-container" class="flex"><!-- Here shows all the items from the shop --></div>
   </section>
 
   <style>
@@ -99,7 +102,34 @@
         }
 
         .cart-menu{
-          width: 150px !important;
+          width: 250px !important;
+          padding: 80px 10px 0px 10px;
+        }
+
+        .cart-item-container{
+          width: 100%;
+          margin-top: 10px;
+        }
+
+        .cart-item-container .img-item{
+          width: 60px;
+        }
+
+        .cart-item-container .img-trash{
+          width: 16px;
+        }
+
+        .cart-item-container p{
+          font-size: small;
+        }
+
+        .subtotal-container{
+          margin-top: 10px;
+          padding: 10px;
+        }
+
+        .subtotal-container p{
+          font-size: small;
         }
 
       }
@@ -107,21 +137,18 @@
       .cart-menu{
         position: fixed;
         top: 0;
-        right: -300px; /* Inicialmente oculto */
-        width: 700px; /* Ancho del menú */
+        right: -300px; 
+        width: 700px; 
         height: 100%;
         background-color: #F2F2F2;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
-        transition: right 0.5s ease; /* Animación de transición */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); 
+        transition: right 0.5s ease;
         z-index: 49;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
-
-
   </style>
 
-
-  <script src="./main.js"></script>
-  <script src="./cart.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/cart.js"></script>
 </body>
 </html>

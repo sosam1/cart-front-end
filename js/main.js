@@ -1,7 +1,5 @@
+//post type request that inserts an item in the carts collection
 function addToCart(id, stock) { 
-    console.log(id)
-    console.log(stock)
-
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -19,9 +17,31 @@ function addToCart(id, stock) {
 
     fetch("http://127.0.0.1:4000/cart", requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then(result => {
+            //message for the user about the result
+            let alertContainer = document.getElementById("alert-container")
+            let alertMessage = document.getElementById("alert-message")
 
+            alertMessage.innerHTML = result
+            
+            alertContainer.classList.remove("hidden");
+            setTimeout(function() {
+                alertContainer.classList.add("hidden");
+            }, 2000);
+        
+            // Add color class based on the message type
+            if (result.includes("successfully")) {
+                alertContainer.classList.add("bg-teal-100"); // Teal for success
+                alertContainer.classList.add("border-teal-500");
+            } else if (result.includes("product is already")) {
+                alertContainer.classList.add("bg-yellow-100"); // Yellow for warning
+                alertContainer.classList.add("border-yellow-500");
+            } else {
+                alertContainer.classList.add("bg-red-100"); // Red for error
+                alertContainer.classList.add("border-red-500");
+            }
+        })
+        .catch(error => console.log('error', error));
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -33,11 +53,8 @@ container = document.getElementById("items-container");
 fetch(URL)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-
-        //show the first 4
-
-        for(let i=0; i<4; i++){
+        //show the first 4 items
+        for(let i=0; i<=4; i++){
             
             container.innerHTML += `
             
@@ -46,7 +63,7 @@ fetch(URL)
                 <div class="p-6">
                     <h2 class="sm:text-sm lg:text-xl font-semibold text-gray-800 mb-2">${data[i].modelo}</h2>
                     <p class="text-gray-600">${data[i].marca}</p>
-                    <p class="text-gray-600 mb-4">${data[i].stock} disponibles</p>
+                    <p class="text-gray-600 mb-4">${data[i].stock} available</p>
                     <div class="flex items-center justify-between">
                         <span class="sm:text-2xl lg:text-2xl text-gray-900 font-semibold">USD ${data[i].precio}</span>
                         <button onclick="addToCart('${data[i]._id}', '${data[i].stock}')" class="btn sm:text-xs sm:ml-1 sm:px-1 sm:py-1 lg:px-4 lg:py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded">Add to cart</button>
@@ -54,12 +71,8 @@ fetch(URL)
                 </div>
             </div>
             
-            
             `
-
         }
-
-
     });
 });
 
