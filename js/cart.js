@@ -62,7 +62,7 @@ function getCartItems(){
           });
           cartContainer.innerHTML += `
           
-          <div class="subtotal-container rounded lg:p-4 lg:mt-10 w-full bg-white flex flex-row justify-end">
+          <div class="subtotal-container rounded mb-4 lg:p-4 lg:mt-10 w-full bg-white flex flex-row justify-end">
                 <p id="subtotal" class="font-bold">Subtotal: USD ${subtotal}</p>
           </div>
           
