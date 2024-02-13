@@ -18,11 +18,12 @@ function addToCart(id, stock) {
     fetch("http://127.0.0.1:4000/cart", requestOptions)
         .then(response => response.text())
         .then(result => {
+            result = JSON.parse(result);
             //message for the user about the result
             let alertContainer = document.getElementById("alert-container")
             let alertMessage = document.getElementById("alert-message")
 
-            alertMessage.innerHTML = result
+            alertMessage.innerHTML = result.message
             
             alertContainer.classList.remove("hidden");
             setTimeout(function() {
@@ -30,10 +31,10 @@ function addToCart(id, stock) {
             }, 2000);
         
             // Add color class based on the message type
-            if (result.includes("successfully")) {
+            if (result.message.includes("successfully")) {
                 alertContainer.classList.add("bg-teal-100"); // Teal for success
                 alertContainer.classList.add("border-teal-500");
-            } else if (result.includes("product is already")) {
+            } else if (result.message.includes("product is already")) {
                 alertContainer.classList.add("bg-yellow-100"); // Yellow for warning
                 alertContainer.classList.add("border-yellow-500");
             } else {

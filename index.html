@@ -38,8 +38,6 @@
 
   <section class="flex flex-col p-10 w-full h-screen bg-[#f6f9fc]" id="section">
     <h2 class="text-black sm:mb-5 sm:text-xl lg:mb-5 lg:ml-24 lg:text-3xl">Most popular</h2>
-    <a href="./catalog.html" class="flex justify-end mb-5 sm:mr-6 lg:mr-28">View all</a>
-
     <div id="items-container" class="flex"><!-- Here shows all the items from the shop --></div>
   </section>
 
@@ -134,18 +132,18 @@
 
       }
 
-      .cart-menu{
+      .cart-menu {
         position: fixed;
         top: 0;
-        right: -300px; 
-        width: 700px; 
+        width: 700px;
         height: 100%;
         background-color: #F2F2F2;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); 
-        transition: right 0.5s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         z-index: 49;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      }
+        right: -700px; /* Posición inicial del menú */
+        transition: right 0.5s ease;
+      }  
   </style>
 
   <script src="./js/main.js"></script>

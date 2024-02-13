@@ -1,18 +1,19 @@
 const URL_CART_ITEMS = "http://127.0.0.1:4000/cart";
 let subtotal = 0 //global variable for calculate the subtotal when the user change the count item with the select option
 
-//function to show and hide the cart menu
+// Función para mostrar y ocultar el menú del carrito
 function toggleCartMenu() {
-    var cartMenu = document.getElementById('cart-menu');
-    cartMenu.classList.toggle('hidden'); // Alternar la clase 'hidden' para mostrar/ocultar el menú
+    let cartMenu = document.getElementById('cart-menu');
+    cartMenu.classList.toggle('hidden');
+    
+    let menuWidth = cartMenu.offsetWidth;
+    
     if (cartMenu.classList.contains('hidden')) {
-      //if the class hidden = true, hide the cart menu. else show it.
-      cartMenu.style.right = '-300px';
+        cartMenu.style.right = '-700px';
     } else {
-      cartMenu.style.right = '0';
+        cartMenu.style.right = '0';
     }
-  }
-
+}
 
 function getCartItems(){
 
@@ -29,7 +30,6 @@ function getCartItems(){
           subtotal = 0
 
           cartItems.forEach(e => {
-              console.log(e)
               subtotal += e.product_info[0].precio
               cartContainer.innerHTML += `
               
